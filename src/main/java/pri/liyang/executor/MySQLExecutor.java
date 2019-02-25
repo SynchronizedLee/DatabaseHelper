@@ -128,10 +128,10 @@ public class MySQLExecutor implements DBExecutor {
         ResultSetMetaData resultSetMetaData = rs.getMetaData();
 
         //获得列数
-        int colCount=resultSetMetaData.getColumnCount();
+        int colCount = resultSetMetaData.getColumnCount();
 
         //列名List
-        List<String> colNameList=new ArrayList<String>();
+        List<String> colNameList = new ArrayList<String>();
 
         //获得列名
         for(int i = 0; i < colCount; i++){
@@ -141,15 +141,15 @@ public class MySQLExecutor implements DBExecutor {
         //遍历结果集，封装数据
         while(rs.next()){
             //装一行的数据
-            Map map=new LinkedHashMap<String, Object>();
+            Map map = new LinkedHashMap<String, Object>();
 
             //获取数据键值
-            for(int i=0;i<colCount;i++){
+            for(int i = 0; i < colCount; i++){
                 //获取列名(字段名)
-                String key=colNameList.get(i);
+                String key = colNameList.get(i);
 
                 //获取值
-                Object value=rs.getString(colNameList.get(i));
+                Object value = rs.getString(colNameList.get(i));
 
                 //封装
                 map.put(key, value);
